@@ -58,10 +58,11 @@ int main () {
     checking->deposit(35);
     assert(checking->withdraw(20) == 20);
     assert(checking->getBalance() == 15);
-    //assert(checking->withdraw(160) == 115 && checking->getBalance() == 0 && checking->getRemainder() == 100);
-    assert(checking->withdraw(160) == 115);
-    assert(checking->getBalance() == 0);
-    assert(checking->getRemainder() == 100);
+    assert(checking->withdraw(160) == 115 && checking->getBalance() == 0 && checking->getRemainder() == 100);
+
+    std::cout << "All checking test have been passed" << std::endl;
+    
+    std::cout << "All test have been passed." << std::endl;
 
     return 0;
 }
