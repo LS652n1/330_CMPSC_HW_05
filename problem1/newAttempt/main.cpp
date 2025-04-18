@@ -10,7 +10,6 @@ int main () {
 
     std::cout << "Savings-> accNum: " << savings->getAccNum() << std::endl;
     std::cout << "Checking-> accNum: " << checking->getAccNum() << std::endl;
-    // std::cout << "Difference in numbers: " << savings ->getAccNum() - checking->getAccNum() << std::endl;
     
     assert (savings->getAccNum() == checking->getAccNum());
 
@@ -59,6 +58,9 @@ int main () {
     assert(checking->withdraw(20) == 20);
     assert(checking->getBalance() == 15);
     assert(checking->withdraw(160) == 115 && checking->getBalance() == 0 && checking->getRemainder() == 100);
+
+    std::cout << "Saving says today's date is: " << savings->getDateCreated() << std::endl;
+    std::cout << "Checking says today's date is: " << checking->getDateCreated() << std::endl;
 
     std::cout << "All checking test have been passed" << std::endl;
     

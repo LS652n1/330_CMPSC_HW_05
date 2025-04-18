@@ -15,6 +15,7 @@ class Account {
 
     // For testing purposes
     virtual unsigned int getAccNum () = 0;
+    std::string getDateCreated () const;
 
     protected:
     unsigned int accNum;
@@ -31,7 +32,12 @@ Account::Account() {
 
     std::time_t currTime = std::time(0);
     std::tm * now = std::localtime(&currTime);
-    dateCreated = std::to_string(now->tm_year + 1900) + std::to_string(now->tm_mon) + std::to_string(now->tm_mday);
+    //dateCreated = std::to_string(now->tm_year + 1900) + ""std::to_string(now->tm_mon + 1) + std::to_string(now->tm_mday);
+    dateCreated = std::to_string(now->tm_mon + 1) + "/" + std::to_string(now->tm_mday) + "/" + std::to_string(now->tm_year + 1900);
 }
 
 Account::~Account() {}
+
+std::string Account::getDateCreated() const {
+    return dateCreated; 
+}
