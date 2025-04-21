@@ -25,30 +25,25 @@ void Checking::deposit (double amount) {
 }
 
 double Checking::withdraw (double amount) {
-    // When you need to overdraft
-        // When you can non longer overdraft (i.e. when you hit the limit), the there is still remaining amount asking for
-        // When not asking for more then the overdraft limit remainder
-    // When you don't need to overdraft
+    
     double returnAmount = 0;
-    if (balance < amount) {
-        if (overdraftLimit - overdraftRemainder < amount - balance) {   
+    if (balance < amount) {     // When needing to overdraft
+        if (overdraftLimit - overdraftRemainder < amount - balance) {       // When you can not longer overdraft
             returnAmount = (overdraftLimit - overdraftRemainder) + balance;     // Money recived from the remaing amount that can be overdrafted.
             overdraftRemainder = overdraftLimit;                        // Shows that now more can be overdrafted
         }
-        else {
+        else {                  // When you are still able to overdraft 
             returnAmount = amount - balance;
             overdraftRemainder += returnAmount; 
         }
         balance = 0;
     }
-    else {
+    else {                      // When you do not need to overdraft
         balance -= amount;
         returnAmount = amount;
     }
     return returnAmount;
-}   // What about when balance = 40, amount = 70, limit = 100, remainder = 80? => should give 20 back 
-    // What about when balance = 40, amount = 70, limit = 100, remiander = 50? => shoudl give 30 back
-    // Might add something that tells you how much difference you go vs what you asked for when amount - balacne > limit- remainder
+}    
 
 const std::string Checking::toString() {
     return std::to_string(accNum) + "," + std::to_string(balance);
@@ -59,7 +54,6 @@ void Checking::payOverDraft(double amount) {
     if (overdraftRemainder != 0 && overdraftRemainder >= amount) {
         overdraftRemainder -= amount;
     }
-    // Otherwise (when amount > remainder || remainder == 0)
 }
 
 // For test purposes

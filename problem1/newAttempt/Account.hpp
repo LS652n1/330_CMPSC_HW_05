@@ -24,7 +24,6 @@ class Account {
     std::string dateCreated;
 };
 
-// 4,294,967,295
 Account::Account() {
     srand(0);
     accNum = rand () % 4294967295 + 1000000000; // Between 1 billion and unsigned int limit
@@ -32,7 +31,6 @@ Account::Account() {
 
     std::time_t currTime = std::time(0);
     std::tm * now = std::localtime(&currTime);
-    //dateCreated = std::to_string(now->tm_year + 1900) + ""std::to_string(now->tm_mon + 1) + std::to_string(now->tm_mday);
     dateCreated = std::to_string(now->tm_mon + 1) + "/" + std::to_string(now->tm_mday) + "/" + std::to_string(now->tm_year + 1900);
 }
 
