@@ -69,7 +69,3 @@ int main () {
     return 0;
 }
 
-
-// Might change the stuff so that it is either unsigned, or force an event to occure if it is negative, in which it will change it to be a positive number.
-// Might also force a deposit and withdraw of only up two decimal points.
-// Find something to do with the intrest.
